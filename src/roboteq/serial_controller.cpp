@@ -193,6 +193,9 @@ bool serial_controller::command(string msg, string params, string type)
     mWriteMutex.lock();
     // Build the string
     string msg2;
+    //mwh update - add ! as type for action command
+    if (type.compare("") == 0) type = "!";
+    
     if(params.compare("") == 0) {
         msg2 = type + msg + eol;
     } else {
